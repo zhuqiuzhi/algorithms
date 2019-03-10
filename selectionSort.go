@@ -33,7 +33,7 @@ func RecSelectionSort(data sort.Interface) {
 
 func recSelectionSort(data sort.Interface, i int) {
 	n := data.Len()
-	if i < n {
+	if i < n-1 {
 		var small = i
 		for j := i + 1; j < n; j++ {
 			if data.Less(j, small) {
