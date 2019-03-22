@@ -52,7 +52,7 @@ func BruteForceKnapsack(items []product, maxWeight float64) ([]product, float64)
 
 // PowerSet returns power set of ps
 func PowerSet(items []product) []products {
-	var result []products
+	var result = make([]products, 0, 2^len(items))
 
 	// add a empty set
 	result = append(result, products{})
