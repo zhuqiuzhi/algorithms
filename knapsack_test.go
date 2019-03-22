@@ -45,6 +45,12 @@ func TestPowerSet(t *testing.T) {
 	testPowerSet(t, PowerSet)
 }
 
+func TestRecursivePowerSet(t *testing.T) {
+	// TODO
+	t.Skip("RecursivePowerSet is incomplete")
+	testPowerSet(t, RecursivePowerSet)
+}
+
 func testPowerSet(t *testing.T, testFunc func(ps []product) []products) {
 	tcs := []struct {
 		in     []product

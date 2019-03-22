@@ -73,3 +73,11 @@ func PowerSet(items []product) []products {
 
 	return result
 }
+
+// RecursivePowerSet returns power set of ps
+func RecursivePowerSet(items []product) []products {
+	var result []products
+	// TODO
+
+	return result
+}
