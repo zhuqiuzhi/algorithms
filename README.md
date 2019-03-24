@@ -8,9 +8,32 @@
 
 algorithms is solutions to algorithmic puzzles in the programming language Go.
 
-## Strategy
+Table of Contents
+=================
 
-### Iteration
+* [Strategy](#strategy)
+* [Iteration](#iteration)
+* [Recursion](#recursion)
+* [Exhaustive Search or Brute Force](#exhaustive-search-or-brute-force)
+* [Backtracking](#backtracking)
+* [Heuristics](#heuristics)
+* [Divide and Conquer](#divide-and-conquer)
+* [Dynamic Programming](#dynamic-programming)
+* [Branch and Bound](#branch-and-bound)
+* [Using specialized data structure](#using-specialized-data-structure)
+
+## Strategy 
+
+[Computer science distilled](https://code.energy/computer-science-distilled/) 总结了以下算法设计策略
+
+- Handle repetitive tasks through iteration,
+- Iterate elegantly using recursion,
+- Use brute force when you’re lazy but powerful,
+- Test bad options and then backtrack,
+- Save time with heuristics for a reasonable way out, Divide and conquer your toughest opponents,
+- Identify old issues dynamically not to waste energy again, Bound your problem so the solution doesn’t escape.
+
+## Iteration
 
 The iterative strategy consists in using loops (e.g. for, while) to repeat a process until a condition is met. Each step in a loop is called an iteration. It’s great for running through an input and applying the same operations on every part of it.
 
@@ -18,7 +41,7 @@ Puzzle |  Solution | Playgroud | Demo
 ------ |  -------- | --------- | ----
 [Merge sea and fresh into a sorted list](https://code.energy/computer-science-distilled/) | [mergeSortedList.go](/mergeSortedList.go) | |
 
-### Recursion 
+## Recursion 
 
 We say there’s recursion when a function delegates work to clones of itself. A recursive algorithm will naturally come to mind for solving a problem defined in terms of itself.
 
@@ -26,7 +49,7 @@ Puzzle | Solution | Playgroud | Demo
 ------ | -------- | --------- | ----
 [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) | [selectionSort.go](/selectionSort.go) | |
 
-### Exhaustive Search or Brute Force
+## Exhaustive Search or Brute Force
 
 An exhaustive search, or brute force, algorithm examines every possible alternative to find one particular solution.
 
@@ -34,7 +57,7 @@ Puzzle | Solution | Playgroud | Demo
 ------ | -------- | --------- | ----
 [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem) | [knapsack.go](/knapsack.go) | | 
 
-### Backtracking
+## Backtracking
 
 Backtracking works best in problems where the solution is a se- quence of choices and making a choice restrains subsequent choices. It identifies as soon as possible the choices you’ve made cannot give you the solution you want, so you can sooner step back and try something else. Fail early, fail often.
 
@@ -42,27 +65,27 @@ Puzzle | Solution | Playgroud | Demo
 ------ | -------- | --------- | ----
 [Eight queens puzzle](https://en.wikipedia.org/wiki/Eight_queens_puzzle) | [queens.go](/queens.go) | [Leetcode](https://leetcode-cn.com/problems/n-queens/) | [The 8 Queens Problem](https://code.energy/8-queens-problem)
 
-### Heuristics
+## Heuristics
 
 Puzzle | Solution | Playgroud | Demo 
 ------ | -------- | --------- | ----
 
-### Divide and Conquer
+## Divide and Conquer
 
 Puzzle | Solution | Playgroud | Demo 
 ------ | -------- | --------- | ----
 
-### Dynamic Programming
+## Dynamic Programming
 
 Puzzle | Solution | Playgroud | Demo 
 ------ | -------- | --------- | ----
 
-### Branch and Bound
+## Branch and Bound
 
 Puzzle | Solution | Playgroud | Demo 
 ------ | -------- | --------- | ----
 
-### Using specialized data structure
+## Using specialized data structure
 
 Puzzle | Solution | Playgroud | Demo 
 ------ | -------- | --------- | ----
