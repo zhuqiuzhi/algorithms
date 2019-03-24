@@ -12,6 +12,6 @@ matrix:
 script:
   - if [ -n "$(go fmt ./...)" ]; then  echo "Go code is not formatted, run ''go fmt ./...''" >&2; exit 1;  fi
   - go vet ./...
-  - go test -race -coverprofile=coverage.txt -covermode=atomic
+  - go test -race -coverprofile=coverage.txt -covermode=atomic ./...
 after_success:
   - bash <(curl -s https://codecov.io/bash)
