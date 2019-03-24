@@ -26,12 +26,14 @@ Table of Contents
 
 [Computer science distilled](https://code.energy/computer-science-distilled/) 总结了以下算法设计策略
 
-- Handle repetitive tasks through iteration,
-- Iterate elegantly using recursion,
-- Use brute force when you’re lazy but powerful,
-- Test bad options and then backtrack,
-- Save time with heuristics for a reasonable way out, Divide and conquer your toughest opponents,
-- Identify old issues dynamically not to waste energy again, Bound your problem so the solution doesn’t escape.
+- Handle repetitive tasks through **iteration**,
+- Iterate elegantly using **recursion**,
+- Use **brute force** when you’re lazy but powerful,
+- Test bad options and then **backtrack**,
+- Save time with **heuristics** for a reasonable way out,
+- **Divide and conquer** your toughest opponents,
+- Identify old issues **dynamically** not to waste energy again,
+- **Bound** your problem so the solution doesn’t escape.
 
 ## Iteration
 
