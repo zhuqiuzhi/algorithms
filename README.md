@@ -1,6 +1,6 @@
 # algorithms
 
-[![Build Status](https://travis-ci.com/zhuqiuzhi/algorithms.svg?branch=master)](https://travis-ci.org/zhuqiuzhi/algorithms)
+[![Build Status](https://travis-ci.com/zhuqiuzhi/algorithms.svg?branch=master)](https://travis-ci.com/zhuqiuzhi/algorithms)
 [![codecov](https://codecov.io/gh/zhuqiuzhi/algorithms/branch/master/graph/badge.svg)](https://codecov.io/gh/zhuqiuzhi/algorithms)
 [![Go Report Card](https://goreportcard.com/badge/github.com/zhuqiuzhi/algorithms)](https://goreportcard.com/report/github.com/zhuqiuzhi/algorithms)
 [![GoDoc](https://godoc.org/github.com/zhuqiuzhi/algorithms?status.svg)](https://godoc.org/github.com/zhuqiuzhi/algorithms)
