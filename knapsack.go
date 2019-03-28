@@ -76,8 +76,22 @@ func PowerSet(items []product) []products {
 
 // RecursivePowerSet returns power set of ps
 func RecursivePowerSet(items []product) []products {
-	var result []products
-	// TODO
+	if len(items) == 1 {
+		return []products{{}, {items[0]}}
+	}
 
-	return result
+	// pop last element
+	last, items := items[len(items)-1], items[:len(items)-1]
+	subSet := RecursivePowerSet(items)
+
+	// copy subSet
+	copySubSet := make([]products, len(subSet))
+	copy(copySubSet, subSet)
+
+	// add last element to subSet
+	for i := range subSet {
+		subSet[i] = append(subSet[i], last)
+	}
+
+	return append(copySubSet, subSet...)
 }

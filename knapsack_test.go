@@ -46,8 +46,6 @@ func TestPowerSet(t *testing.T) {
 }
 
 func TestRecursivePowerSet(t *testing.T) {
-	// TODO
-	t.Skip("RecursivePowerSet is incomplete")
 	testPowerSet(t, RecursivePowerSet)
 }
 
