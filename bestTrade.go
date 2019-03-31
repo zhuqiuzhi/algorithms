@@ -11,18 +11,13 @@ func trade(prices []int) []int {
 }
 
 // trade_dp 使用动态规划法自底向上的方式解决 "BEST TRADE" 问题
-// P(n) is the price on the nth day.
-// B(n) is the best day to buy if we’re selling on the nth day.
-// B(n) = n if P(n) < P(B(n-1))
-// B(n) = B(n-1) if P(n) >= P(B(n-1))
 func tradeDP(prices []int) []int {
-	// b 记录每日卖出时的最佳买入时间
+	// b[i] 记录 [0,i] 中价格最低的日期的下标
 	var b = make(map[int]int)
 	b[0] = 0
 
 	sellDay, bestProfit := 0, 0
 	for i := 1; i < len(prices); i++ {
-		// 根据第 i 天的价格和前一天卖出时的最佳买入价格比较，得到第 i 天最佳买入的时间
 		if prices[i] < prices[b[i-1]] {
 			b[i] = i
 		} else {
@@ -39,22 +34,21 @@ func tradeDP(prices []int) []int {
 }
 
 // trade_kadane 使用1984 年 Jay Kadane 教授提出的算法，其时间复杂度是 O(n)，但空间复杂度只要 O(1)
-// 只需要存储相对于目前最佳卖出日的最佳买入日即可
-// 最佳交易组合出现在 [0, i-1] 中的最佳交易组合和 (b, i) 交易组合中
-// b 是比 [0, i-1] 中的交易组合的买入日价格更低的日期中最晚的日期
+// 也是《剑指Offer》第二版第 63 题的解法
 func tradeKadane(prices []int) []int {
 	buyDay, sellDay, bestProfit := 0, 0, 0
 
-	// b 记录比 buyDay 日价格更低的日期
-	b := 0
+	min := 0
 	for i := 1; i < len(prices); i++ {
-		if prices[i] < prices[buyDay] {
-			b = i
+		// 循环不变式: min 是 [0, i] 中价格最小的下标
+		if prices[i] < prices[min] {
+			min = i
 		}
-		profit := prices[i] - prices[b]
+
+		profit := prices[i] - prices[min]
 		if profit > bestProfit {
-			buyDay = b
 			sellDay = i
+			buyDay = min
 			bestProfit = profit
 		}
 	}
