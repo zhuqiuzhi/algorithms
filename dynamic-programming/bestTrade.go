@@ -2,7 +2,7 @@
 // You want to find two days in this interval such that if you had bought then sold gold at
 // those dates, you’d have made the maximum possible profit.
 
-package algorithms
+package dynamic
 
 // trade 使用分治法自顶向下的方式解决 "BEST TRADE" 问题
 func trade(prices []int) []int {

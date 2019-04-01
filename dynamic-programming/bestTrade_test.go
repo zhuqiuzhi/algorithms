@@ -1,4 +1,4 @@
-package algorithms
+package dynamic
 
 import (
 	"reflect"
