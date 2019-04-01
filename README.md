@@ -83,6 +83,7 @@ Puzzle | Solution | Playgroud | Demo
 ------ | -------- | --------- | ----
 [Fibonacci number](https://en.wikipedia.org/wiki/Fibonacci_number) | [fibonacci.go](/dynamic-programming/fibonacci.go) | [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) |
 Best trade(《剑指Offer》面试题63: 股票的最大利润) | [bestTrade.go](/dynamic-programming/bestTrade.go) | |
+[Burst Balloons](https://leetcode.com/problems/burst-balloons/) | [burstBalloons.go](/dynamic-programming/burstBalloons.go) | |
 
 ## Branch and Bound
 
