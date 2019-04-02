@@ -27,9 +27,21 @@ func change2(amount int, coins []int) int {
 		//fmt.Printf("coin: %d, ways: %v\n", coin, store)
 	}
 
+	// 解题思路
+	// 使用 {..., coin} 兑换 amount:
+	// 兑换 amount 的组合数分为两种情况，一种使用 coin，一种没有使用 coin
+	// 使用 coin 时兑换的组合数:
+	//    如果 amount 大于 coin，则表示使用 coin 时的组合数等于不使用该coin时兑换 amount-coin 时的组合数;
+	//    因为这些组合只要再加上 coin，就能得到 amount;
+	//    amount 等于 coin 时，则表示使用coin时的，组合数就是 1;
+	//    否则使用 coin 时的组合数为 0;
+	// 不使用 coin 时兑换 amount 的组合数就是在上一次迭代中计算出的 store[i]
+	//
+	// 总的组合数= 使用coin时兑换的组合数 + 不使用 coin 时兑换 amount 的组合数
+	//
 	// Input:
 	// amount=5, coins=[]int{1,2,5}
-	// Output:
+	// Output:         0 1 2 3 4 5
 	// coin: 1, ways: [1 1 1 1 1 1]
 	// coin: 2, ways: [1 1 2 2 3 3]
 	// coin: 5, ways: [1 1 2 2 3 4]
