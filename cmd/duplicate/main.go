@@ -22,7 +22,7 @@ func main() {
 	var lines = make(map[string]struct{})
 	var line string
 	for {
-		// 注意 Fscanf 的第三个参数得是
+		// 注意 Fscanf 的第三个参数得是指针
 		if _, err := fmt.Fscanf(inFile, "%s\n", &line); err != nil {
 			return
 		} else {
