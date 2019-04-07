@@ -1,4 +1,4 @@
-package algorithms
+package sort
 
 import "sort"
 
@@ -58,7 +58,3 @@ func (s students) Len() int { return len(s) }
 func (s students) Less(i, j int) bool { return s[i].ID < s[j].ID }
 
 func (s students) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
-
-func SortStudents(s students) {
-	SelectionSort(s)
-}
