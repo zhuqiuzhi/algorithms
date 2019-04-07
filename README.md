@@ -76,6 +76,7 @@ Puzzle | Solution | Playgroud | Demo
 
 Puzzle | Solution | Playgroud | Demo 
 ------ | -------- | --------- | ----
+Quick Sort | [quickSort.go](/sort/quickSort.go) | |
 
 ## Dynamic Programming
 
