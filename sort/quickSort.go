@@ -24,25 +24,21 @@ func partition(data sort.Interface, low, high int) int {
 	i, j := low+1, high
 
 	for {
-		for ; data.Less(i, low); i++ {
-			if i == high {
-				break
-			}
+		for ; i < high && data.Less(i, low); i++ {
 		}
-		// data[i] >= data[low] or i == high
+		// data[i] >= data[low] or i = high
 
-		for ; data.Less(low, j); j-- {
-			if j == low {
-				break
-			}
+		for ; j > low && data.Less(low, j); j-- {
 		}
-		// data[j] <= data[low] or j == low
+		// data[j] <= data[low] or j = low
 
 		if i >= j {
 			break
 		}
 
 		data.Swap(i, j)
+		i++
+		j--
 		// data[i] <= data[low]
 		// data[j] >= data[low]
 	}
