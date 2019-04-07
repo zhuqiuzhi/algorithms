@@ -49,7 +49,7 @@ We say there’s recursion when a function delegates work to clones of itself. A
 
 Puzzle | Solution | Playgroud | Demo 
 ------ | -------- | --------- | ----
-[Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) | [selectionSort.go](/selectionSort.go) | |
+[Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) | [selectionSort.go](sort/selectionSort.go) | |
 
 ## Exhaustive Search or Brute Force
 
