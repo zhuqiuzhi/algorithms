@@ -99,3 +99,6 @@ Puzzle | Solution | Playgroud | Demo
 [第一个只出现一次的字符](https://book.douban.com/subject/6966465/) | [firstNotRepeatingChar.go](/firstNotRepeatingChar.go) | |
 [Two Sum](https://leetcode-cn.com/problems/two-sum/) | [two-sum.go](/two-sum.go) | [Leetcode](https://leetcode-cn.com/problems/two-sum/) | 
 [LRU Cache](https://leetcode.com/problems/lru-cache/) | [lru.go](container/LRU/lru.go) | [Leetcode](https://leetcode.com/problems/lru-cache/) |
+[Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | [tree.go](container/tree/tree.go) | [LeetCode](https://leetcode.com/problems/binary-tree-preorder-traversal/) | 
+[Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | [tree.go](container/tree/tree.go) | [LeetCode](https://leetcode.com/problems/binary-tree-inorder-traversal/) |
+[Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) | [tree.go](container/tree/tree.go) | [LeetCode](https://leetcode.com/problems/binary-tree-postorder-traversal/) |
