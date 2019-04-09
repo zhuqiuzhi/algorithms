@@ -98,3 +98,4 @@ Puzzle | Solution | Playgroud | Demo
 ------ | -------- | --------- | ----
 [第一个只出现一次的字符](https://book.douban.com/subject/6966465/) | [firstNotRepeatingChar.go](/firstNotRepeatingChar.go) | |
 [Two Sum](https://leetcode-cn.com/problems/two-sum/) | [two-sum.go](/two-sum.go) | [Leetcode](https://leetcode-cn.com/problems/two-sum/) | 
+[LRU Cache](https://leetcode.com/problems/lru-cache/) | [lru.go](container/LRU/lru.go) | [Leetcode](https://leetcode.com/problems/lru-cache/) |
