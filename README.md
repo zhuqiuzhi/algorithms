@@ -1,5 +1,7 @@
 # algorithms
 
+[![LICENSE](https://img.shields.io/github/license/zhuqiuzhi/algorithms.svg)](https://github.com/zhuqiuzhi/algorithms/blob/master/LICENSE)
+[![Language](https://img.shields.io/badge/Language-Go-blue.svg)](https://golang.org/)
 [![Build Status](https://travis-ci.com/zhuqiuzhi/algorithms.svg?branch=master)](https://travis-ci.com/zhuqiuzhi/algorithms)
 [![codecov](https://codecov.io/gh/zhuqiuzhi/algorithms/branch/master/graph/badge.svg)](https://codecov.io/gh/zhuqiuzhi/algorithms)
 [![Go Report Card](https://goreportcard.com/badge/github.com/zhuqiuzhi/algorithms)](https://goreportcard.com/report/github.com/zhuqiuzhi/algorithms)
