@@ -93,6 +93,7 @@ Best trade(《剑指Offer》面试题63: 股票的最大利润) | [bestTrade.go]
 
 Puzzle | Solution | Playgroud | Demo 
 ------ | -------- | --------- | ----
+Two Sum II - Input array is sorted | two-sum2.go | [Leetcode](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | 
 
 ## Using specialized data structure
 
