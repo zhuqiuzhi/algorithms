@@ -4,7 +4,7 @@ import "container/list"
 
 type LRUCache struct {
 	cap int
-	ll  *list.List            // 存储 *elemetn(<key, value>)， 方便插入和删除
+	ll  *list.List            // 存储 *element(<key, value>)， 方便插入和删除
 	m   map[int]*list.Element // 快速根据 key 找到 *element(<key,value>)
 }
 
