@@ -11,6 +11,7 @@ func testSortFunc(t *testing.T, sortFunc func(sort.Interface), name string) {
 		sort.IntSlice{3},
 		sort.IntSlice{3, 3, 3, 3},
 		sort.IntSlice{3, 3, 3, 3, 3},
+		sort.IntSlice{2, 7, 5, 4, 11, 15, 8},
 		sort.IntSlice{3, 1, 4, 1, 5, 9, 2, 6, 5},
 		sort.IntSlice{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
 		sort.IntSlice{12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1},
@@ -35,4 +36,8 @@ func TestRecSelectionSort(t *testing.T) {
 
 func TestQuickSort(t *testing.T) {
 	testSortFunc(t, QuickSort, "QuickSort")
+}
+
+func TestQuickSort2(t *testing.T) {
+	testSortFunc(t, QuickSort2, "QuickSort2")
 }

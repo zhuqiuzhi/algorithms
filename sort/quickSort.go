@@ -11,6 +11,33 @@ func QuickSort(data sort.Interface) {
 	quickSort(data, 0, data.Len()-1)
 }
 
+func QuickSort2(data sort.Interface) {
+	qsort(data, 0, data.Len()-1)
+}
+
+func qsort(data sort.Interface, left, right int) {
+	if left >= right {
+		return
+	}
+
+	// partition
+	var last int
+	data.Swap(left, left+(right-left)/2)
+	last = left
+
+	for i := left + 1; i <= right; i++ {
+		if data.Less(i, left) {
+			// 循环不变式: data[last] <= data[left]
+			last += 1
+			data.Swap(last, i)
+		}
+	}
+	data.Swap(left, last)
+
+	qsort(data, left, last-1)
+	qsort(data, last+1, right)
+}
+
 func quickSort(data sort.Interface, low, high int) {
 	if high <= low {
 		return
