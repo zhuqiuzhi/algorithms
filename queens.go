@@ -31,7 +31,7 @@ type position struct {
 // 判断皇后是否会被已经放置在 position 位置的皇后攻击
 func SolveNQueensOneSolution(n int) []string {
 	var queens = make([]position, 0, n)
-	queens, hasSolution := solveNQueensOneSolutionUtil(n, 0, queens)
+	hasSolution := solveNQueensOneSolutionUtil(n, 0, &queens)
 
 	var result []string
 	if hasSolution {
@@ -46,14 +46,14 @@ func SolveNQueensOneSolution(n int) []string {
 // solveNQueensOneSolutionUtil 找出第 row 行的第一个可以安全放置皇后的列追加到 colsOfQueen
 // 当 row 大于或等于 n 说明找到解的所有的皇后的位置
 // 因为递归的过程中会修改 queues，所以必须返回修改后的值
-func solveNQueensOneSolutionUtil(n, row int, queens []position) ([]position, bool) {
+func solveNQueensOneSolutionUtil(n, row int, queens *[]position) bool {
 	if row >= n {
-		return queens, true
+		return true
 	}
 
 	for col := 0; col < n; col++ {
 		var foundSafe = true
-		for _, q := range queens {
+		for _, q := range *queens {
 			if col == q.col || row+col == q.col+q.row || row-col == q.row-q.col {
 				// 会被已放置的皇后攻击
 				foundSafe = false
@@ -63,28 +63,29 @@ func solveNQueensOneSolutionUtil(n, row int, queens []position) ([]position, boo
 		if foundSafe {
 			// 递归到下一行
 			var ok bool
-			queens = append(queens, position{row: row, col: col})
-			queens, ok = solveNQueensOneSolutionUtil(n, row+1, queens)
+			*queens = append(*queens, position{row: row, col: col})
+			ok = solveNQueensOneSolutionUtil(n, row+1, queens)
 			if ok {
 				// 只有当递归完到最后一行，solveNQueensOneSolutionUtil 才会返回 true，此时说明找到了一个解
-				return queens, true
+				return true
 			} else {
 				// Youtube 中视频没有做这步操作是因为他每次都是按行来放置皇后的，而不是使用追加的方式
 				// 下一行找不到安全的位置，要回溯上一次的操作,即把上一次放置的皇后移除
-				queens = queens[:len(queens)-1]
+				*queens = (*queens)[:len(*queens)-1]
 			}
 		}
 	}
 	// 枚举完当前行的列, 没有找到安全的位置
-	return queens, false
+	return false
 }
 
 // 此处仍使用类似上面找一个解的方式来找到每一行安全的位置
 func solveNQueens(n int) [][]string {
 	var queens = make([]position, 0, n)
+	// 所有的可行解的集合
 	var allSolutions [][]position
 
-	allSolutions = solveNQueensUtil(n, 0, queens, allSolutions)
+	solveNQueensUtil(n, 0, queens, &allSolutions)
 	var result [][]string
 	for _, s := range allSolutions {
 		var solution []string
@@ -100,10 +101,10 @@ func solveNQueens(n int) [][]string {
 // solveNQueensOneSolutionUtil 找出第 row 行的第一个可以安全放置皇后的列追加到 colsOfQueen
 // 当 row 大于或等于 n 说明找到解的所有的皇后的位置
 // 因为递归的过程中会修改 queues，所以必须返回修改后的值
-func solveNQueensUtil(n, row int, queens []position, allSolutions [][]position) [][]position {
+func solveNQueensUtil(n, row int, queens []position, allSolutions *[][]position) {
 	if row >= n {
-		allSolutions = append(allSolutions, queens)
-		return allSolutions
+		*allSolutions = append(*allSolutions, queens)
+		return
 	}
 
 	for col := 0; col < n; col++ {
@@ -118,17 +119,15 @@ func solveNQueensUtil(n, row int, queens []position, allSolutions [][]position) 
 		if foundSafe {
 			queens = append(queens, position{row: row, col: col})
 
-			// 注意此种解法，必须拷贝 slice
+			// 注意此种解法，必须拷贝 slice, 因为递归结束时，如果行数已经等于 n 时，会将 slice 添加到 allSolutions 里
 			var copyQueens = make([]position, len(queens))
 			copy(copyQueens, queens)
-			allSolutions = solveNQueensUtil(n, row+1, copyQueens, allSolutions)
+			solveNQueensUtil(n, row+1, copyQueens, allSolutions)
 
 			// 回溯
 			queens = queens[0 : len(queens)-1]
 		}
 	}
-	// 枚举完当前行的列, 没有找到安全的位置
-	return allSolutions
 }
 
 type board struct {
