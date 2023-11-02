@@ -2,7 +2,7 @@
    {
       "neetcode150":true,
       "blind75":true,
-      "problem":"Contains Duplicate",
+      "problem":"存在重复元素",
       "pattern":"Arrays & Hashing",
       "link":"contains-duplicate/",
       "video":"3OamzN90kPg",
@@ -26,7 +26,7 @@
    {
       "neetcode150":true,
       "blind75":true,
-      "problem":"Valid Anagram",
+      "problem":"同字母异序",
       "pattern":"Arrays & Hashing",
       "link":"valid-anagram/",
       "video":"9UtInBqnCgA",
