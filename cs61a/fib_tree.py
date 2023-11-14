@@ -3,10 +3,10 @@ def tree(label, branches=[]):
         assert is_tree(branch), 'brancher must is tree'
     return [label] + list(branches)
 
-def label(tree)
+def label(tree):
     return tree[0]
 
-def branches(tree)
+def branches(tree):
     return tree[1:]
 
 def is_tree(tree):
