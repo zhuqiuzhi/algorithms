@@ -1,4 +1,4 @@
-def count_partations(n, m):
+def count_partitions(n, m):
     """统计将 n 分区, 最大分区大小为 m, 计算出所有的分区方案数
     例如 n = 5, m = 3
     >>> count_partations(6, 4)
