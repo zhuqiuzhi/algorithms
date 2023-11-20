@@ -78,9 +78,74 @@ def add(s, v):
     assert s is not Link.empty
     if s.first > v:
         # 构造链表: v, rest -> s 
-        s.fisrt, s.rest = v, Link(s.first, s.rest)
+        s.first, s.rest = v, Link(s.first, s.rest)
     elif s.first < v and s.rest is Link.empty:
         s.rest = Link(v)
     elif s.first < v:
         add(s.rest, v)
     return s
+
+def ordered(s, key=lambda x: x):
+    """Is Link is order?
+
+    >>> ordered(Link(1, Link(3, Link(4))))
+    True
+    >>> ordered(Link(1, Link(4, Link(3))))
+    False
+    >>> ordered(Link(1, Link(-3, Link(4))))
+    False
+    >>> ordered(Link(1, Link(-3, Link(4))), key=abs)
+    True
+    >>> ordered(Link(1, Link(4, Link(3))), key=abs)
+    False
+    """
+    if s is Link.empty or s.rest is Link.empty:
+        return True
+    elif key(s.first) > key(s.rest.first):
+        return False
+    else:
+        return ordered(s.rest, key)
+
+def merge(s, t):
+    """Return a sorted Link with the elements of sorted s & t.
+
+    >>> a = Link(1, Link(5))
+    >>> b = Link(1, Link(4))
+    >>> merge(a, b)
+    Link(1, Link(1, Link(4, Link(5))))
+    >>> a
+    Link(1, Link(5))
+    >>> b
+    Link(1, Link(4))
+    """
+    if s is Link.empty:
+        return t
+    elif t is Link.empty:
+        return s
+    elif s.first <= t.first:
+        return Link(s.first, merge(s.rest, t))
+    else:
+        return Link(t.first, merge(s, t.rest))
+
+def merge_in_place(s, t):
+    """Return a sorted Link with the elements of sorted s & t.
+
+    >>> a = Link(1, Link(5))
+    >>> b = Link(1, Link(4))
+    >>> merge_in_place(a, b)
+    Link(1, Link(1, Link(4, Link(5))))
+    >>> a
+    Link(1, Link(1, Link(4, Link(5))))
+    >>> b
+    Link(1, Link(4, Link(5)))
+    """
+    if s is Link.empty:
+        return t
+    elif t is Link.empty:
+        return s
+    elif s.first <= t.first:
+        s.rest = merge_in_place(s.rest, t)
+        return s
+    else:
+        t.rest = merge_in_place(s, t.rest)
+        return t
