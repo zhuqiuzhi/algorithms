@@ -18,6 +18,8 @@ class Solution {
     }
 
     public boolean containsDuplicateWithMap(int[] nums) {
+        // HashSet 实现了 Set 接口
+        // This class offers constant time performance for the basic operations (add, remove, contains and size)
         Set<Integer> set = new HashSet<Integer>();
         for (int x : nums) {
             if (!set.add(x)) {

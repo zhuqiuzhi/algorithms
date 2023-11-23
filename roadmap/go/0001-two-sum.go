@@ -1,16 +1,16 @@
-package algorithms
+package roadmap
 
 // TwoSum return indices of the two numbers such that they add up to a specific target.
 // Approach: One-pass Hash Table
 // https://leetcode-cn.com/problems/two-sum/
 func TwoSum(nums []int, target int) []int {
-	v := make(map[int]int)
-	for i, x := range nums {
-		y := target - x
-		if j, ok := v[y]; ok {
+	preMap := make(map[int]int)
+	for i, num := range nums {
+		complement := target - num
+		if j, ok := preMap[complement]; ok {
 			return []int{j, i}
 		}
-		v[x] = i
+		preMap[num] = i
 	}
 	return nil
 }
