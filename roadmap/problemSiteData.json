@@ -123,7 +123,7 @@
    {
       "neetcode150":true,
       "blind75":true,
-      "problem":"Two Sum",
+      "problem":"两数之和",
       "pattern":"Arrays & Hashing",
       "link":"two-sum/",
       "video":"KLlXCFG5TnA",
@@ -941,7 +941,7 @@
    {
       "neetcode150":true,
       "blind75":true,
-      "problem":"Valid Palindrome",
+      "problem":"判断回文字符串",
       "pattern":"Two Pointers",
       "link":"valid-palindrome/",
       "video":"jJXJ16kPFWg",
