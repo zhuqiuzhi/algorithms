@@ -339,7 +339,7 @@
       "swift":true
    },
    {
-      "problem":"Range Sum Query - Immutable",
+      "problem":"区域和检索 - 数组不可变",
       "pattern":"Arrays & Hashing",
       "link":"range-sum-query-immutable/",
       "video":"2pndAmo_sMA",
