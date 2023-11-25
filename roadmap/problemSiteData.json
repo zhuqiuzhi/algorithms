@@ -1241,7 +1241,7 @@
    {
       "neetcode150":true,
       "blind75":true,
-      "problem":"Best Time to Buy And Sell Stock",
+      "problem":"买卖股票的最佳时机",
       "pattern":"Sliding Window",
       "link":"best-time-to-buy-and-sell-stock/",
       "video":"1pkOgXD63yU",
