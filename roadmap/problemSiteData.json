@@ -1,8 +1,25 @@
 [
    {
+      "problem":"Range Sum Query - Immutable",
+      "problem-cn":"区域和检索 - 数组不可变",
+      "pattern":"Prefix sum arrays",
+      "link":"range-sum-query-immutable/",
+      "difficulty":"Easy",
+      "python":true
+   },
+   {
+      "problem":"Corporate Flight Bookings",
+      "problem-cn":"航班预订统计",
+      "pattern":"Diff Arrays",
+      "link":"corporate-flight-bookings/",
+      "difficulty":"Medium",
+      "python":true
+   },
+   {
       "neetcode150":true,
       "blind75":true,
-      "problem":"存在重复元素",
+      "problem":"Contains Duplicate",
+      "problem-cn":"存在重复元素",
       "pattern":"Arrays & Hashing",
       "link":"contains-duplicate/",
       "video":"3OamzN90kPg",
@@ -26,7 +43,8 @@
    {
       "neetcode150":true,
       "blind75":true,
-      "problem":"同字母异序",
+      "problem":"Valid Anagram",
+      "problem-cn":"同字母异序",
       "pattern":"Arrays & Hashing",
       "link":"valid-anagram/",
       "video":"9UtInBqnCgA",
@@ -123,7 +141,8 @@
    {
       "neetcode150":true,
       "blind75":true,
-      "problem":"两数之和",
+      "problem":"Two Sum",
+      "problem-cn":"两数之和",
       "pattern":"Arrays & Hashing",
       "link":"two-sum/",
       "video":"KLlXCFG5TnA",
@@ -941,7 +960,8 @@
    {
       "neetcode150":true,
       "blind75":true,
-      "problem":"判断回文字符串",
+      "problem":"Valid Palindrome",
+      "problem-cn":"判断回文字符串",
       "pattern":"Two Pointers",
       "link":"valid-palindrome/",
       "video":"jJXJ16kPFWg",
@@ -1241,7 +1261,8 @@
    {
       "neetcode150":true,
       "blind75":true,
-      "problem":"买卖股票的最佳时机",
+      "problem":"Best Time to Buy and Sell Stock",
+      "problem-cn":"买卖股票的最佳时机",
       "pattern":"Sliding Window",
       "link":"best-time-to-buy-and-sell-stock/",
       "video":"1pkOgXD63yU",
