@@ -1,4 +1,12 @@
 [
+  {
+      "problem":"Car Pooling",
+      "problem-cn":"拼车",
+      "pattern":"Diff Arrays",
+      "link":"car-pooling/",
+      "difficulty":"Medium",
+      "python":true
+   },
    {
       "problem":"Range Sum Query - Immutable",
       "problem-cn":"区域和检索 - 数组不可变",
