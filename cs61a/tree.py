@@ -2,7 +2,7 @@ class Tree:
     def __init__(self, label, branches=[]) -> None:
         self.label = label
         for branch in branches:
-            assert(branch, isinstance(branch, Tree))
+            assert isinstance(branch, Tree)
         # create new list
         self.branches = list(branches)
 

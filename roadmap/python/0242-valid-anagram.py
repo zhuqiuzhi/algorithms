@@ -1,4 +1,11 @@
 class Solution:
+    """
+    >>> s = Solution()
+    >>> s.isAnagram('triangle', 'integral')
+    True
+    >>> s.isAnagram('triangle', 'integra')
+    False
+    """
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
