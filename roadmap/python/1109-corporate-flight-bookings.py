@@ -16,8 +16,8 @@ class Solution:
     [10, 25]
     """
     def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
-        diffs = [0 for i in range(0, n)] 
-        answers = [0 for i in range(0, n)] 
+        diffs = [0 for i in range(n)]
+        answers = [0 for i in range(n)]
 
         # init diff array
         for booking in bookings:
