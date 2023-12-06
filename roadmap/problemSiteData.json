@@ -1497,6 +1497,7 @@
       "neetcode150":true,
       "blind75":true,
       "problem":"Valid Parentheses",
+      "problem-cn":"有效的括号",
       "pattern":"Stack",
       "link":"valid-parentheses/",
       "video":"WTzjTskDFMg",
