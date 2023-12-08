@@ -23,4 +23,13 @@ class Solution {
 
         return brackets.isEmpty();
     }
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        boolean result = s.isValid("[][}");
+        if (result != false) {
+            System.out.println("want result is false");
+        } else {
+            System.out.println("success");
+        } 
+    }
 }
