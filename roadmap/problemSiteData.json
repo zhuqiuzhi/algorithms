@@ -2110,6 +2110,7 @@
       "neetcode150":true,
       "blind75":true,
       "problem":"Reverse Linked List",
+      "problem-cn":"反转链表",
       "pattern":"Linked List",
       "link":"reverse-linked-list/",
       "video":"G0_I-ZF0S38",
