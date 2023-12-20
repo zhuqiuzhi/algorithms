@@ -2135,6 +2135,7 @@
       "neetcode150":true,
       "blind75":true,
       "problem":"Merge Two Sorted Lists",
+      "problem-cn":"合并两个有序链表",
       "pattern":"Linked List",
       "link":"merge-two-sorted-lists/",
       "video":"XIdigk956u0",
