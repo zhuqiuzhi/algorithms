@@ -1794,6 +1794,7 @@
    {
       "neetcode150":true,
       "problem":"Binary Search",
+      "problem-cn":"二分查找",
       "pattern":"Binary Search",
       "link":"binary-search/",
       "video":"s4DPM8ct1pI",
