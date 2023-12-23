@@ -5,6 +5,7 @@ import (
 )
 
 func isPalindrome(s string) bool {
+	// 重要语言技巧: 将字符串转为 []rune
 	runes := []rune(s)
 
 	i, j := 0, len(runes)-1
