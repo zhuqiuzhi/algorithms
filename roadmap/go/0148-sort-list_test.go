@@ -1,6 +1,7 @@
 package roadmap
 
 import (
+	"flag"
 	"math/rand"
 	"reflect"
 	"testing"
@@ -18,6 +19,12 @@ func getInts(start, end int) []int {
 	return a
 }
 
+var isRand bool
+
+func init() {
+	flag.BoolVar(&isRand, "rand", false, "pseudo-randomizes the order of elements")
+}
+
 func TestSortList(t *testing.T) {
 	tcs := []struct {
 		in   []int
@@ -27,19 +34,24 @@ func TestSortList(t *testing.T) {
 		{in: []int{4, 2, 1, 3}, want: []int{1, 2, 3, 4}, f: sortList},
 		{in: []int{-1, 5, 3, 4, 0}, want: []int{-1, 0, 3, 4, 5}, f: sortList},
 		{in: []int{2, 3, 4, 5, 6, 7, 8, 9, 1}, want: []int{1, 2, 3, 4, 5, 6, 7, 8, 9}, f: sortList},
-		{in: append([]int{1}, getInts(2, 50000)...), want: getInts(1, 50000), f: sortList},
-		{in: append([]int{1}, getInts(2, 100000)...), want: getInts(1, 100000), f: sortList},
+		{in: getInts(1, 50000), want: getInts(1, 50000), f: sortList},
+		{in: append(getInts(2, 50000), 1), want: getInts(1, 50000), f: sortList},
+		{in: append(getInts(2, 100000), 1), want: getInts(1, 100000), f: sortList},
 
 		{in: []int{4, 2, 1, 3}, want: []int{1, 2, 3, 4}, f: mergeSortList},
 		{in: []int{-1, 5, 3, 4, 0}, want: []int{-1, 0, 3, 4, 5}, f: mergeSortList},
 		{in: []int{2, 3, 4, 5, 6, 7, 8, 9, 1}, want: []int{1, 2, 3, 4, 5, 6, 7, 8, 9}, f: mergeSortList},
-		{in: append([]int{1}, getInts(2, 50000)...), want: getInts(1, 50000), f: mergeSortList},
-		{in: append([]int{1}, getInts(2, 100000)...), want: getInts(1, 100000), f: mergeSortList},
+		{in: getInts(1, 50000), want: getInts(1, 50000), f: mergeSortList},
+		{in: append(getInts(2, 50000), 1), want: getInts(1, 50000), f: mergeSortList},
+		{in: append(getInts(2, 100000), 1), want: getInts(1, 100000), f: mergeSortList},
 	}
 
-	isRand := true
+	if isRand {
+		t.Logf("isRand: %t", isRand)
+	}
+
 	for i, tc := range tcs {
-		begin := time.Now().Unix()
+		begin := time.Now().UnixMilli()
 		if isRand {
 			rand.Shuffle(len(tc.in), func(i, j int) {
 				tc.in[i], tc.in[j] = tc.in[j], tc.in[i]
@@ -52,6 +64,6 @@ func TestSortList(t *testing.T) {
 		if !reflect.DeepEqual(tc.want, values) {
 			t.Errorf("origin: %v, got: %v", tc.in, values)
 		}
-		t.Logf("case %d: %d seconds", i, time.Now().Unix()-begin)
+		t.Logf("case %d: %d milli seconds", i, time.Now().UnixMilli()-begin)
 	}
 }

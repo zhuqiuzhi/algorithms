@@ -9,6 +9,7 @@ func reverseList(head *ListNode) *ListNode {
 		next := cur.Next
 		cur.Next = prev
 
+		// update prev, cur
 		prev = cur
 		cur = next
 	}

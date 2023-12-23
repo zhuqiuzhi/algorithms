@@ -27,6 +27,16 @@ func getTail(head *ListNode) *ListNode {
 	return tail
 }
 
+func isSorted(head *ListNode) bool {
+	for head != nil && head.Next != nil {
+		if head.Val > head.Next.Val {
+			return false
+		}
+		head = head.Next
+	}
+	return true
+}
+
 func sortListRange(head, tail *ListNode) *ListNode {
 	// base case
 	if head == nil || head == tail {
@@ -60,14 +70,23 @@ func sortListRange(head, tail *ListNode) *ListNode {
 	// small linked list is not empty
 	if smallTail != nil {
 		smallTail.Next = nil
-		newHead = sortListRange(smallHead, smallTail)
+		if isSorted(smallHead) {
+			newHead = smallHead
+		} else {
+			newHead = sortListRange(smallHead, smallTail)
+		}
 		getTail(newHead).Next = tail
 	}
 
 	// large linked list is not empty
 	if largeTail != nil {
 		largeTail.Next = nil
-		tail.Next = sortListRange(largeHead, largeTail)
+		// 只能优化已排序的情况, 之后可以通过随机选择 pivot node
+		if isSorted(largeHead) {
+			tail.Next = largeHead
+		} else {
+			tail.Next = sortListRange(largeHead, largeTail)
+		}
 	}
 
 	if newHead == nil {
