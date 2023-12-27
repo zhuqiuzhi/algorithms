@@ -27,8 +27,13 @@ func TestTraversal(t *testing.T) {
 		root     *Node
 		want     []int
 	}{
+		{preorderTraversalR, root, []int{1, 2, 3}},
 		{preorderTraversal, root, []int{1, 2, 3}},
+
+		{postorderTraversalR, root, []int{3, 2, 1}},
 		{postorderTraversal, root, []int{3, 2, 1}},
+
+		{inorderTraversalR, root, []int{1, 3, 2}},
 		{inorderTraversal, root, []int{1, 3, 2}},
 	}
 
