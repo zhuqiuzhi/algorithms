@@ -40,6 +40,8 @@ func preorderTraversal(root *Node) []int {
 			continue
 		}
 		ret = append(ret, n.Val)
+		// 注意这里是先放右子树, 然后再放左子树
+		// 因为栈的特点是先进后出, 所以会先处理完左子树的所有结点再处理右子树的
 		stack = append(stack, n.Right)
 		stack = append(stack, n.Left)
 	}
