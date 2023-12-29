@@ -1,6 +1,7 @@
 package roadmap
 
 func reverseList(head *ListNode) *ListNode {
+	// prev 初始化值是 nil, head.next 就会被设置为 nil
 	var prev *ListNode
 	cur := head
 
