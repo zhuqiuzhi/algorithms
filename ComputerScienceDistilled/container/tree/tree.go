@@ -1,14 +1,14 @@
 package tree
 
-// Node is a binary tree node.
-type Node struct {
+// TreeNode is a binary tree node.
+type TreeNode struct {
 	Val   int
-	Left  *Node
-	Right *Node
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 // 先根遍历的递归版本
-func preorderTraversalRecursion(root *Node, values []int) []int {
+func preorderTraversalRecursion(root *TreeNode, values []int) []int {
 	if root == nil {
 		return values
 	}
@@ -21,7 +21,7 @@ func preorderTraversalRecursion(root *Node, values []int) []int {
 	return values
 }
 
-func preorderTraversalR(root *Node) []int {
+func preorderTraversalR(root *TreeNode) []int {
 	var ret []int
 	ret = preorderTraversalRecursion(root, ret)
 	return ret
@@ -29,10 +29,10 @@ func preorderTraversalR(root *Node) []int {
 
 // 先根遍历的迭代版本
 // preorderTraversal 使用先根遍历的方法遍历二叉树, 返回遍历的序列
-func preorderTraversal(root *Node) []int {
+func preorderTraversal(root *TreeNode) []int {
 	var ret []int
-	var stack = []*Node{root}
-	var n *Node
+	var stack = []*TreeNode{root}
+	var n *TreeNode
 
 	for len(stack) != 0 {
 		n, stack = stack[len(stack)-1], stack[0:len(stack)-1]
@@ -50,7 +50,7 @@ func preorderTraversal(root *Node) []int {
 }
 
 // 后根遍历的递归版本
-func postorderTraversalRecursion(root *Node, values []int) []int {
+func postorderTraversalRecursion(root *TreeNode, values []int) []int {
 	if root == nil {
 		return values
 	}
@@ -63,23 +63,30 @@ func postorderTraversalRecursion(root *Node, values []int) []int {
 	return values
 }
 
-func postorderTraversalR(root *Node) []int {
+func postorderTraversalR(root *TreeNode) []int {
 	var ret []int
 	ret = postorderTraversalRecursion(root, ret)
 	return ret
 }
 
+const (
+	visit = 0
+	print = 1
+)
+
 // Guide 用保存后根遍历和中根遍历时对结点进行处理的操作
+// 因为后根遍历和中根遍历在访问完根结点时,还没有处理完, 还需要放回栈中之后再处理(打印)
+// 所以还需要区分是访问结点还是打印结点
 type Guide struct {
 	op   int // 0: visit 1: print
-	node *Node
+	node *TreeNode
 }
 
 // 后根遍历的迭代版本
 // postorderTraversal 使用后根遍历的方法遍历二叉树, 返回遍历的序列
-func postorderTraversal(root *Node) []int {
+func postorderTraversal(root *TreeNode) []int {
 	var ret []int
-	var stack = []Guide{{op: 0, node: root}}
+	var stack = []Guide{{op: visit, node: root}}
 	var current Guide
 
 	for len(stack) != 0 {
@@ -88,14 +95,14 @@ func postorderTraversal(root *Node) []int {
 		if current.node == nil {
 			continue
 		}
-		if current.op == 1 {
+		if current.op == print {
 			// print
 			ret = append(ret, current.node.Val)
 		} else {
 			// visit
-			stack = append(stack, Guide{1, current.node})
-			stack = append(stack, Guide{0, current.node.Right})
-			stack = append(stack, Guide{0, current.node.Left})
+			stack = append(stack, Guide{print, current.node})
+			stack = append(stack, Guide{visit, current.node.Right})
+			stack = append(stack, Guide{visit, current.node.Left})
 		}
 	}
 
@@ -103,7 +110,7 @@ func postorderTraversal(root *Node) []int {
 }
 
 // 中根遍历的递归版本
-func inorderTraversalRecursion(root *Node, values []int) []int {
+func inorderTraversalRecursion(root *TreeNode, values []int) []int {
 	if root == nil {
 		return values
 	}
@@ -116,7 +123,7 @@ func inorderTraversalRecursion(root *Node, values []int) []int {
 	return values
 }
 
-func inorderTraversalR(root *Node) []int {
+func inorderTraversalR(root *TreeNode) []int {
 	var ret []int
 	ret = inorderTraversalRecursion(root, ret)
 	return ret
@@ -124,10 +131,10 @@ func inorderTraversalR(root *Node) []int {
 
 // 中根遍历的迭代版本
 // inorderTraversal 使用中根遍历的方法遍历二叉树, 返回遍历的序列
-func inorderTraversal(root *Node) []int {
+func inorderTraversal(root *TreeNode) []int {
 	var ret []int
 	// 将根结点压入栈中
-	var stack = []Guide{{op: 0, node: root}}
+	var stack = []Guide{{op: visit, node: root}}
 	var current Guide
 
 	for len(stack) != 0 {
@@ -141,10 +148,30 @@ func inorderTraversal(root *Node) []int {
 			ret = append(ret, current.node.Val)
 		} else {
 			// visit
-			stack = append(stack, Guide{0, current.node.Right})
-			stack = append(stack, Guide{1, current.node})
-			stack = append(stack, Guide{0, current.node.Left})
+			stack = append(stack, Guide{visit, current.node.Right})
+			stack = append(stack, Guide{print, current.node})
+			stack = append(stack, Guide{visit, current.node.Left})
 		}
+	}
+
+	return ret
+}
+
+func inorderTraversalNeetcode(root *TreeNode) []int {
+	var ret []int
+	var stack []*TreeNode
+
+	cur := root
+	for cur != nil || len(stack) != 0 {
+		for cur != nil {
+			stack = append(stack, cur)
+			cur = cur.Left
+		}
+
+		cur, stack = stack[len(stack)-1], stack[:len(stack)-1]
+		ret = append(ret, cur.Val)
+
+		cur = cur.Right
 	}
 
 	return ret
