@@ -3,6 +3,8 @@ package roadmap
 // Leetcode Problem: https://leetcode.com/problems/binary-tree-level-order-traversal/
 // Given the root of a binary tree, return the level order traversal of its nodes' values.
 // (i.e., from left to right, level by level).
+// The function `levelOrder` performs a level order traversal on a binary tree and returns a 2D array
+// containing the values of each level.
 func levelOrder(root *TreeNode) [][]int {
 	if root == nil {
 		return nil
