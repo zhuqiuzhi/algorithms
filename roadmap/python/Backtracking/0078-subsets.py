@@ -10,25 +10,28 @@ from typing import List
 # 限制: 不能重复, 和排列有区别
 # 技巧: 对 n 个数字依次做 0 和 1 选择
 # 可以作为回溯算法的模板
+
+
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-       res = []
+        res = []
 
-       subset = [] 
-       def dfs(i: int):
-           # base case
-           if i == len(nums):
-               res.append(subset.copy())
-               return
+        subset = []
 
-           # descide to include nums[i]
-           subset.append(nums[i])
-           dfs(i+1)
+        def dfs(i: int):
+            # base case
+            if i == len(nums):
+                res.append(subset.copy())
+                return
 
-           # descide not to include nums[i]
-           subset.pop()
-           dfs(i+1)
-        
-       dfs(0)
+            # descide to include nums[i]
+            subset.append(nums[i])
+            dfs(i+1)
 
-       return res
+            # descide not to include nums[i]
+            subset.pop()
+            dfs(i+1)
+
+        dfs(0)
+
+        return res

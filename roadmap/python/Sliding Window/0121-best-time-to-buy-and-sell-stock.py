@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def maxProfitBrute(self, prices: List[int]) -> int:
         """ Best Time to Buy and Sell Stock 
@@ -12,11 +13,11 @@ class Solution:
         maxProfit = 0
         for start in range(0, len(prices)):
             for end in range(start+1, len(prices)):
-                diff = prices[end] -prices[start]
+                diff = prices[end] - prices[start]
                 if diff > maxProfit:
                     maxProfit = diff
-    
-        return maxProfit 
+
+        return maxProfit
 
     def maxProfit(self, prices: List[int]) -> int:
         """ Best Time to Buy and Sell Stock

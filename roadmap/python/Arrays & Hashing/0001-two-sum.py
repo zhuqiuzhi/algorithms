@@ -1,4 +1,5 @@
-from typing import List 
+from typing import List
+
 
 class Solution:
     """
@@ -10,8 +11,9 @@ class Solution:
     >>> s.twoSum([3,3], 6)
     [0, 1]
     """
+
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        hashMap: dict[int, int]= {}
+        hashMap: dict[int, int] = {}
         for i in range(len(nums)):
             complement = target - nums[i]
             if complement in hashMap:

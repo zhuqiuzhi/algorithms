@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     """
     >>> s = Solution()
@@ -10,9 +11,10 @@ class Solution:
     >>> s.carPooling([[2,1,5],[3,5,7]], 3)
     True
     """
+
     def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
-        diffs = [0 for i in range(0, 1001)] 
-        stations = [0 for i in range(0, 1001)] 
+        diffs = [0 for i in range(0, 1001)]
+        stations = [0 for i in range(0, 1001)]
 
         for trip in trips:
             numPassengersi = trip[0]
@@ -26,5 +28,5 @@ class Solution:
         for i in range(1, 1001):
             stations[i] = stations[i-1] + diffs[i]
 
-        #print(stations)
+        # print(stations)
         return not any([x > capacity for x in stations])
