@@ -44,56 +44,49 @@ func sortListRange(head, tail *ListNode) *ListNode {
 	}
 
 	var smallHead, smallTail, largeHead, largeTail *ListNode
+	cur := head
 	// use tail as pivot node
-	for head != tail {
-		if head.Val <= tail.Val { // add head to small linked list
+	for cur != tail {
+		if cur.Val <= tail.Val { // add head to small linked list
 			if smallHead == nil {
-				smallHead = head
-				smallTail = head
+				smallHead = cur
+				smallTail = cur
 			} else {
-				smallTail.Next = head
-				smallTail = head // 易错点: 忘记更新 smallTail 指针
+				smallTail.Next = cur
+				// 更新 smallTail 指向最后一个结点
+				smallTail = smallTail.Next // 易错点: 忘记更新 smallTail 指针
 			}
 		} else {
 			if largeHead == nil { // add head into large linked list
-				largeHead = head
-				largeTail = head
+				largeHead = cur
+				largeTail = cur
 			} else {
-				largeTail.Next = head
-				largeTail = head
+				largeTail.Next = cur
+				// 更新 largeTaill 指向最后一个结点
+				largeTail = largeTail.Next
 			}
 		}
-		head = head.Next
+		cur = cur.Next
 	}
 
-	var newHead *ListNode
 	// small linked list is not empty
 	if smallTail != nil {
 		smallTail.Next = nil
-		if isSorted(smallHead) {
-			newHead = smallHead
-		} else {
-			newHead = sortListRange(smallHead, smallTail)
-		}
-		getTail(newHead).Next = tail
+		head = sortListRange(smallHead, smallTail)
+		getTail(head).Next = tail
 	}
 
 	// large linked list is not empty
 	if largeTail != nil {
 		largeTail.Next = nil
-		// 只能优化已排序的情况, 之后可以通过随机选择 pivot node
-		if isSorted(largeHead) {
-			tail.Next = largeHead
-		} else {
-			tail.Next = sortListRange(largeHead, largeTail)
-		}
+		tail.Next = sortListRange(largeHead, largeTail)
 	}
 
-	if newHead == nil {
+	if head == nil {
 		return tail
 	}
 
-	return newHead
+	return head
 }
 
 // mergeSortLlist 使用归并排序算法将链表排序
