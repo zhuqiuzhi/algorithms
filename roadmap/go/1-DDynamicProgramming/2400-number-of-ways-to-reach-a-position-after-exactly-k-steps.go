@@ -44,7 +44,8 @@ func numberOfWaysDp(startPos int, endPos int, k int) int {
 	if diff < 0 {
 		diff = -diff
 	}
-	if diff > k {
+	// 当距离大于 k 时, 或者 k-diff 是奇数, 因为先通过 diff 步数走到 endPos, 然后必须通过偶数步才能回到 endPos
+	if k < diff || (k-diff)%2 == 1 {
 		return 0
 	}
 
