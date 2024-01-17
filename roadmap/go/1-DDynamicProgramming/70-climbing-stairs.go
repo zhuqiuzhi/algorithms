@@ -2,8 +2,8 @@ package roadmap
 
 // Leetcode Problem: https://leetcode.com/problems/climbing-stairs/
 func climbStairs(n int) int {
-	if n == 1 {
-		return 1
+	if n <= 2 {
+		return n
 	}
 	var dp = make([]int, n+1)
 	dp[1] = 1
