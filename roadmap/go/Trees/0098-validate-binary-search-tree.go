@@ -19,7 +19,7 @@ func isValidBST(root *TreeNode) bool {
 			return false
 		}
 
-		// 难点: 左结点也需要大于根结点的要求的最喜
+		// 难点: 左结点也需要大于根结点的要求的最小值
 		return dfs(root.Left, min, root.Val) && dfs(root.Right, root.Val, max)
 	}
 
